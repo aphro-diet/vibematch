@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VibeMatch – Aesthetic IG Vibes</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>VibeMatch</h1>
-    <p class="tagline">Find the perfect aesthetic song & layout for your Instagram story</p>
+  <div class="container wrapper">
+    <header>
+      <h1>Vibe Generator</h1>
+      <div class="subtitle">Find your aesthetic, mood, and vibe in seconds</div>
+    </header>
 
-    <div class="input-section">
-      <label for="vibeInput">Describe your vibe (e.g., rainy cafe, pink grunge):</label>
-      <input type="text" id="vibeInput" placeholder="Enter your story vibe..." />
-      <button onclick="getVibe()">Match My Vibe</button>
+    <!-- Upload or Input Section -->
+    <div class="upload-section">
+      <input type="text" id="inputText" placeholder="Type your mood, theme, or idea..." />
     </div>
 
-    <div class="result hidden" id="resultSection">
-      <h2>Your Vibe Results:</h2>
-      <p><strong>Recommended Songs:</strong></p>
-      <ul id="songList"></ul>
+    <!-- Vibe Buttons -->
+    <div class="vibe-selection">
+      <div class="vibe-buttons">
+        <button onclick="generateVibe('calm')">Calm</button>
+        <button onclick="generateVibe('party')">Party</button>
+        <button onclick="generateVibe('romantic')">Romantic</button>
+        <button onclick="generateVibe('dark')">Dark</button>
+      </div>
+    </div>
 
-      <p><strong>Story Layout Ideas:</strong></p>
-      <ul id="layoutList"></ul>
+    <!-- Submit Button -->
+    <div class="input-section">
+      <button onclick="processInput()">Generate</button>
+    </div>
 
-      <p><strong>Color Scheme:</strong></p>
-      <div id="colors" class="color-boxes"></div>
+    <!-- Results -->
+    <div class="results" id="results">
+      <h2>Your Vibe</h2>
+      <div class="card-container" id="cardContainer"></div>
     </div>
   </div>
 
