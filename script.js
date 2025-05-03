@@ -1,49 +1,55 @@
-function getVibe() {
-  const vibe = document.getElementById('vibeInput').value.toLowerCase();
-  const songs = document.getElementById('songList');
-  const layouts = document.getElementById('layoutList');
-  const colors = document.getElementById('colors');
-  const result = document.getElementById('resultSection');
+// Utility to generate random colors
+function getRandomColor() {
+  const colors = ['#ff8c42', '#fceabb', '#6A1B9A', '#FF4081', '#f8b500', '#fad0c4', '#ff9a9e'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
-  songs.innerHTML = '';
-  layouts.innerHTML = '';
-  colors.innerHTML = '';
+// Process user input
+function processInput() {
+  const text = document.getElementById('inputText').value.trim();
+  if (!text) {
+    alert("Please enter a theme or vibe.");
+    return;
+  }
+  displayCard(`Generated for: ${text}`);
+}
 
-  let songData = [];
-  let layoutData = [];
-  let colorData = [];
+// Generate vibe by preset button
+function generateVibe(vibe) {
+  displayCard(`Vibe selected: ${vibe.charAt(0).toUpperCase() + vibe.slice(1)}`);
+}
 
-  if (vibe.includes("rain") || vibe.includes("sad")) {
-    songData = ["‘From the Start’ – Laufey", "‘Let Me Down Slowly’ – Alec Benjamin", "‘Another Love’ – Tom Odell"];
-    layoutData = ["Use blurred background with white serif font", "Add raindrop overlay with subtle animation"];
-    colorData = ["#b3cde0", "#a1a1a1", "#333333"];
-  } else if (vibe.includes("pink") || vibe.includes("soft") || vibe.includes("grunge")) {
-    songData = ["‘death bed’ – Powfu", "‘jealous’ – Eyedress", "‘Lover is a Day’ – Cuco"];
-    layoutData = ["Use Polaroid-style photo cutouts", "Layer text in typewriter font on pink overlay"];
-    colorData = ["#ffc0cb", "#f7cac9", "#4b4b4b"];
-  } else {
-    songData = ["‘Golden Hour’ – JVKE", "‘Sunflower’ – Post Malone", "‘Cloud 9’ – Beach Bunny"];
-    layoutData = ["Use sunburst effect with center quote", "Overlay handwritten font over aesthetic photo"];
-    colorData = ["#ffe066", "#fad390", "#f8c291"];
+// Display the result card
+function displayCard(title) {
+  const cardContainer = document.getElementById('cardContainer');
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const heading = document.createElement('h3');
+  heading.textContent = title;
+
+  const colorBoxWrapper = document.createElement('div');
+  colorBoxWrapper.className = 'color-boxes';
+
+  for (let i = 0; i < 4; i++) {
+    const box = document.createElement('div');
+    box.className = 'color-box';
+    box.style.backgroundColor = getRandomColor();
+    colorBoxWrapper.appendChild(box);
   }
 
-  songData.forEach(song => {
-    const li = document.createElement('li');
-    li.textContent = song;
-    songs.appendChild(li);
-  });
+  const quote = document.createElement('p');
+  quote.textContent = "“Let your vibe speak before your words.”";
 
-  layoutData.forEach(layout => {
-    const li = document.createElement('li');
-    li.textContent = layout;
-    layouts.appendChild(li);
-  });
+  const songLink = document.createElement('a');
+  songLink.href = "#";
+  songLink.textContent = "Suggested playlist";
+  songLink.target = "_blank";
 
-  colorData.forEach(color => {
-    const box = document.createElement('div');
-    box.style.backgroundColor = color;
-    colors.appendChild(box);
-  });
+  card.appendChild(heading);
+  card.appendChild(colorBoxWrapper);
+  card.appendChild(quote);
+  card.appendChild(songLink);
 
-  result.classList.remove('hidden');
+  cardContainer.appendChild(card);
 }
