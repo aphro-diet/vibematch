@@ -1,74 +1,148 @@
-body {
+/* Reset & Base */
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #fceabb, #f8b500);
-  color: #2e2e2e;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
 
-.container {
-  max-width: 700px;
+body {
+  background: linear-gradient(135deg, #fceabb, #f8b500, #ff9a9e, #fad0c4);
+  color: #2e2e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Container */
+.container, .wrapper {
+  max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
   background: #fff8f0;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
-h1 {
-  text-align: center;
+/* Header */
+h1, header h1 {
   font-size: 3rem;
-  color: #333;
+  color: #6A1B9A;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.tagline {
+.tagline, header .subtitle {
   text-align: center;
   font-style: italic;
-  color: #777;
+  color: #FF4081;
   margin-bottom: 30px;
+  font-size: 1.2rem;
 }
 
-.input-section {
+/* Input Section */
+.input-section, .upload-section, .vibe-selection {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 30px;
 }
 
-input[type="text"] {
+input[type="text"], .upload-section input {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
 }
 
-button {
-  padding: 12px;
+/* Buttons */
+button, .vibe-buttons button {
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  background: #ff8c42;
+  background: #FF8C42;
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  margin: 8px 0;
 }
 
-button:hover {
-  background: #e6762d;
+button:hover, .vibe-buttons button:hover {
+  background: #F50057;
+  transform: translateY(-2px);
 }
 
-.result {
+/* Results Section */
+.result, .results h2 {
   margin-top: 30px;
 }
 
-.color-boxes {
+.results h2 {
+  margin-bottom: 15px;
+  color: #6A1B9A;
+}
+
+/* Color Boxes */
+.color-boxes, .card-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
   margin-top: 10px;
 }
 
-.color-boxes div {
+.color-boxes div, .card .color-box {
   width: 40px;
   height: 40px;
   border-radius: 8px;
+  background: #ccc;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.card .color-box:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card */
+.card {
+  background: #ffffffcc;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 220px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Song Links */
+.card a {
+  display: block;
+  margin: 8px 0;
+  color: #6A1B9A;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.card a:hover {
+  color: #FF4081;
+}
+
+/* Quote Text */
+.card p {
+  font-style: italic;
+  color: #444;
+}
+
+/* Hidden Utility Class */
 .hidden {
   display: none;
 }
