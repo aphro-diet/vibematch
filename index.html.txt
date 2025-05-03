@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeMatch – Aesthetic IG Vibes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>VibeMatch</h1>
+    <p class="tagline">Find the perfect aesthetic song & layout for your Instagram story</p>
+
+    <div class="input-section">
+      <label for="vibeInput">Describe your vibe (e.g., rainy cafe, pink grunge):</label>
+      <input type="text" id="vibeInput" placeholder="Enter your story vibe..." />
+      <button onclick="getVibe()">Match My Vibe</button>
+    </div>
+
+    <div class="result hidden" id="resultSection">
+      <h2>Your Vibe Results:</h2>
+      <p><strong>Recommended Songs:</strong></p>
+      <ul id="songList"></ul>
+
+      <p><strong>Story Layout Ideas:</strong></p>
+      <ul id="layoutList"></ul>
+
+      <p><strong>Color Scheme:</strong></p>
+      <div id="colors" class="color-boxes"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
